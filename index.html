@@ -174,7 +174,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="BOSS系统HBase使用场景和分析"><a href="#BOSS系统HBase使用场景和分析" class="headerlink" title="BOSS系统HBase使用场景和分析"></a>BOSS系统HBase使用场景和分析</h1><h2 id="1、BOSS系统中处理详单数据时使用到了HBase数据库。"><a href="#1、BOSS系统中处理详单数据时使用到了HBase数据库。" class="headerlink" title="1、BOSS系统中处理详单数据时使用到了HBase数据库。"></a>1、BOSS系统中处理详单数据时使用到了HBase数据库。</h2><p>因为计费处理话单文件是零散的、无序的、大存储量的。而且计费下发过来的文件是一种结构化的，固定形式的。所以如果需要持久化的话非常适合HBase这种分布式列数据库方式存储。查询语言对Java也有很好支持（除非与其他框架一起使用，如 Phoenix、Hive），不像关系数据库需要使用SQL语句。HBase的索引方式只支持Row-Key（除非和其他技术在一起用), HBase的事务是单个Row级别的。
+        <p>最近在VPS上搭建HBase还没来的及总结，又忙着去看了看公司使用HBase的场景，所以在此做个总结顺带把HBase一些基本东西复习下
         
           <a class="article-more-a" href="/2018/03/29/HBase场景分析/HBase场景分析/#more">more >></a>
         
@@ -563,11 +563,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">2017随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">HBase</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HBase</a>
+                <a href="javascript:void(0)" class="js-tag color2">2017随笔</a>
               </li>
              
               <li class="article-tag-list-item">
