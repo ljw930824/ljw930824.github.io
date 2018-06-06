@@ -8,25 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>安徽移动BOSS消息中间件使用场景 | Fanta的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="消息中间件出现的场景：BOSS中心和CRM中心存在不同的数据库，一些诸如停开机用户数据同步和缴费数据同步的过程以前老系统是使用应用集成平台扫描表做数据搬运的动作。搬运过程中对数据库的压力和IO的压力都很大，处理效率低并且对传输过程中丢失的数据无法追踪，无重试和保证机制。在这个需求下，将使用到同步的场景采用消息中间件来触发。
-具体流程是：将需要同步的主题和数据从对象池中取出，没有的话就新建一个，但主">
+  <meta name="description" content="消息中间件出现的场景：BOSS中心和CRM中心存在不同的数据库，一些诸如停开机用户数据同步和缴费数据同步的过程以前老系统是使用应用集成平台扫描表做数据搬运的动作。搬运过程中对数据库的压力和IO的压力都很大，处理效率低并且对传输过程中丢失的数据无法追踪，无重试和保证机制。在这个需求下，将使用到同步的场景采用消息中间件来触发。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安徽移动BOSS消息中间件使用场景">
 <meta property="og:url" content="http://yoursite.com/2018/06/06/安徽移动BOSS消息中间件使用场景/安徽移动BOSS消息中间件使用场景/index.html">
 <meta property="og:site_name" content="Fanta的博客">
-<meta property="og:description" content="消息中间件出现的场景：BOSS中心和CRM中心存在不同的数据库，一些诸如停开机用户数据同步和缴费数据同步的过程以前老系统是使用应用集成平台扫描表做数据搬运的动作。搬运过程中对数据库的压力和IO的压力都很大，处理效率低并且对传输过程中丢失的数据无法追踪，无重试和保证机制。在这个需求下，将使用到同步的场景采用消息中间件来触发。
-具体流程是：将需要同步的主题和数据从对象池中取出，没有的话就新建一个，但主">
+<meta property="og:description" content="消息中间件出现的场景：BOSS中心和CRM中心存在不同的数据库，一些诸如停开机用户数据同步和缴费数据同步的过程以前老系统是使用应用集成平台扫描表做数据搬运的动作。搬运过程中对数据库的压力和IO的压力都很大，处理效率低并且对传输过程中丢失的数据无法追踪，无重试和保证机制。在这个需求下，将使用到同步的场景采用消息中间件来触发。">
 <meta property="og:image" content="http://yoursite.com/images/tu.jpg">
 <meta property="og:image" content="http://yoursite.com/images/xxgn.png">
 <meta property="og:image" content="http://yoursite.com/images/mysql.jpg">
 <meta property="og:image" content="http://yoursite.com/images/ysj.png">
 <meta property="og:image" content="http://yoursite.com/images/ztjg.jpg">
 <meta property="og:image" content="http://yoursite.com/images/dygx.png">
-<meta property="og:updated_time" content="2018-06-06T10:32:19.126Z">
+<meta property="og:updated_time" content="2018-06-06T10:34:58.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安徽移动BOSS消息中间件使用场景">
-<meta name="twitter:description" content="消息中间件出现的场景：BOSS中心和CRM中心存在不同的数据库，一些诸如停开机用户数据同步和缴费数据同步的过程以前老系统是使用应用集成平台扫描表做数据搬运的动作。搬运过程中对数据库的压力和IO的压力都很大，处理效率低并且对传输过程中丢失的数据无法追踪，无重试和保证机制。在这个需求下，将使用到同步的场景采用消息中间件来触发。
-具体流程是：将需要同步的主题和数据从对象池中取出，没有的话就新建一个，但主">
+<meta name="twitter:description" content="消息中间件出现的场景：BOSS中心和CRM中心存在不同的数据库，一些诸如停开机用户数据同步和缴费数据同步的过程以前老系统是使用应用集成平台扫描表做数据搬运的动作。搬运过程中对数据库的压力和IO的压力都很大，处理效率低并且对传输过程中丢失的数据无法追踪，无重试和保证机制。在这个需求下，将使用到同步的场景采用消息中间件来触发。">
 <meta name="twitter:image" content="http://yoursite.com/images/tu.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Fanta的博客" type="application/atom+xml">
@@ -183,7 +180,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>消息中间件出现的场景：BOSS中心和CRM中心存在不同的数据库，一些诸如停开机用户数据同步和缴费数据同步的过程以前老系统是使用应用集成平台扫描表做数据搬运的动作。搬运过程中对数据库的压力和IO的压力都很大，处理效率低并且对传输过程中丢失的数据无法追踪，无重试和保证机制。在这个需求下，将使用到同步的场景采用消息中间件来触发。</p>
+        <p>消息中间件出现的场景：BOSS中心和CRM中心存在不同的数据库，一些诸如停开机用户数据同步和缴费数据同步的过程以前老系统是使用应用集成平台扫描表做数据搬运的动作。搬运过程中对数据库的压力和IO的压力都很大，处理效率低并且对传输过程中丢失的数据无法追踪，无重试和保证机制。在这个需求下，将使用到同步的场景采用消息中间件来触发。<a id="more"></a></p>
 <p>具体流程是：将需要同步的主题和数据从对象池中取出，没有的话就新建一个，但主题保证是已有的。通过NIO将消息主体等内容发送到消息中间件，并对数据做个存储（Mysql集群存，主备相互备份）数据库的建模按照一个主题来建表，队列分区建表有点浪费资源，消息中间件根据主题发送到相应的主机上去处理，如果因为任何原因失败了，将重试三次，三次后仍失败将消息状态置为失败。<br>消息发送到相应主机后，存储到消息接口表中，根据进程扫描本地接口表做同步处理。处理成功后反馈给消息中间件，然后再发送消息给生产者告知。至此消息处理完毕。（ACK过程，第一次发送是SEND状态，第二次发送是COMMIT状态，全部状态都得到反馈，消息发送成功）</p>
 <p>可以说说消息中间件使用的几点技术：</p>
 <p>1.整体消息中间件系统参考<br>这个是一个真实生产化的消息系统案例，由 1 个架构师 +2 个高级工程师设计开发，第一期研发测试到上生产约 3 个月，目前该系统日处理消息量过亿。<br>假定公司因为业务需要，要构建一套分布式消息系统 MQ，类似 Kafka 这样的，这个问题看起来很大很复杂，但是如果你抽丝剥茧，透过现象看本质，Kafka 这样的消息系统本质上是下图这样的抽象概念：<br><img src="/images/tu.jpg" alt=""></p>
@@ -490,7 +487,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HBase</a>
+                <a href="javascript:void(0)" class="js-tag color1">消息中间件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,11 +495,11 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">消息中间件</a>
+                <a href="javascript:void(0)" class="js-tag color4">架构的一点点探索</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">架构的一点点探索</a>
+                <a href="javascript:void(0)" class="js-tag color1">HBase</a>
               </li>
              
               <li class="article-tag-list-item">
