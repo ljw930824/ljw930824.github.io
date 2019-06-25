@@ -153,7 +153,256 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-HBase应用场景/HBase应用场景" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HBase应用场景
+    </h1>
+  
+
+        
+        <a href="/2018/03/29/HBase应用场景/HBase应用场景/" class="archive-article-date">
+  	<time datetime="2018-03-29T03:28:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在VPS上搭建HBase还没来的及总结，又忙着去看了看公司使用HBase的场景，所以在此做个总结顺带把HBase一些基本东西复习下<a id="more"></a></p>
+<h2 id="1、BOSS系统中处理详单数据时使用到了HBase数据库。"><a href="#1、BOSS系统中处理详单数据时使用到了HBase数据库。" class="headerlink" title="1、BOSS系统中处理详单数据时使用到了HBase数据库。"></a>1、BOSS系统中处理详单数据时使用到了HBase数据库。</h2><p>因为计费处理话单文件是零散的、无序的、大存储量的。而且计费下发过来的文件是一种结构化的，固定形式的。所以如果需要持久化的话非常适合HBase这种分布式列数据库方式存储。查询语言对Java也有很好支持（除非与其他框架一起使用，如 Phoenix、Hive），不像关系数据库需要使用SQL语句。HBase的索引方式只支持Row-Key（除非和其他技术在一起用）, HBase的事务是单个Row级别的。而且像详单这种数据量增速很快的东西，使用传统关系数据库做拓展和扩容是非常困难的，往往建立在昂贵的硬件和性能优化上，HBase通过增加Region数量就可以达到此的效果。</p>
+<h3 id="Hive和HBase使用区别"><a href="#Hive和HBase使用区别" class="headerlink" title="Hive和HBase使用区别"></a>Hive和HBase使用区别</h3><p>类似的有例如Hive这种数据库存储，但是Hive的场景适合统计一段时间内的数据，而且不能实时返回数据。例如，用来计算趋势或者网站的日志。Hive 不应该用来进行实时的查询（Hive 的设计目的，也不是支持实时的查询）。因为它需要很长时间才可以返回结果；<br>HBase 则非常适合用来进行大数据的实时查询，例如 Facebook 用 HBase 进行消息和实时的分析。对于 Hive 和 HBase 的部署来说，也有一些区别，Hive 一般只要有 Hadoop 便可以工作。而 HBase 则还需要 Zookeeper 的帮助（Zookeeper，是一个用来进行分布式协调的服务，这些服务包括配置服务，维护元信息和命名空间服务）。再而，HBase 本身只提供了 Java 的 API 接口，并不直接支持 SQL 的语句查询，而 Hive 则可以直接使用 HQL（一种类 SQL 语言）。如果想要在 HBase 上使用 SQL，则需要联合使用 Apache Phonenix，或者联合使用 Hive 和 HBase。但是和上面提到的一样，如果集成使用 Hive 查询 HBase 的数据，则无法绕过 MapReduce，那么实时性还是有一定的损失。Phoenix 加 HBase 的组合则不经过 MapReduce 的框架，因此当使用 Phoneix 加 HBase 的组成，实时性上会优于 Hive 加 HBase 的组合，我们后续也会示例性介绍如何使用两者。最后我们再提下 Hive 和 HBase 所使用的存储层，默认情况下 Hive 和 HBase 的存储层都是 HDFS。但是 HBase 在一些特殊的情况下也可以直接使用本机的文件系统。例如 Ambari 中的 AMS 服务直接在本地文件系统上运行 HBase。</p>
+<h3 id="表-1-HBase-与-RDBMS-的区别"><a href="#表-1-HBase-与-RDBMS-的区别" class="headerlink" title="表 1. HBase 与 RDBMS 的区别"></a>表 1. HBase 与 RDBMS 的区别</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>HBase</th>
+<th>RDBMS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>硬件架构</td>
+<td>类似于 Hadoop 的分布式集群，硬件成本低廉</td>
+<td>传统的多核系统，硬件成本昂贵</td>
+</tr>
+<tr>
+<td>容错性</td>
+<td>由软件架构实现，由于由多个节点组成，所以不担心一点或几点宕机</td>
+<td>一般需要额外硬件设备实现 HA 机制</td>
+</tr>
+<tr>
+<td>数据库大小</td>
+<td>PB</td>
+<td>GB、TB</td>
+</tr>
+<tr>
+<td>数据排布方式</td>
+<td>稀疏的、分布的多维的 Map</td>
+<td>以行和列组织</td>
+</tr>
+<tr>
+<td>数据类型</td>
+<td>Bytes</td>
+<td>丰富的数据类型</td>
+</tr>
+<tr>
+<td>事物支持</td>
+<td>ACID 只支持单个 Row 级别</td>
+<td>全面的 ACID 支持，对 Row 和表</td>
+</tr>
+<tr>
+<td>查询语言</td>
+<td>只支持 Java API （除非与其他框架一起使用，如 Phoenix、Hive）</td>
+<td>SQL</td>
+</tr>
+<tr>
+<td>索引</td>
+<td>只支持 Row-key，除非与其他技术一起应用，如 Phoenix、Hive</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>吞吐量</td>
+<td>百万查询/每秒</td>
+<td>数千查询/每秒</td>
+</tr>
+</tbody>
+</table>
+<p> 当然BOSS系统中也会保存2个月详单的数据放在物理数据库中作为备份，所以当BOSS系统使用大数据量查询时候，HBase配合HadHoop和ZooKeeper可以通过ZK来达到HA的效果，如果单纯将HBase作为单机部署其实发挥不了太大作用，搭配分布式部署起来可以发挥快速作用，ZK负责至少一个HBase Master可用，Hadoop则给Hbase提供HDFS作为存储基础，这样存取速度、容错性都有很好的保证。</p>
+<h2 id="2、BOSS系统在ROW-KEY上的设计"><a href="#2、BOSS系统在ROW-KEY上的设计" class="headerlink" title="2、BOSS系统在ROW-KEY上的设计"></a>2、BOSS系统在ROW-KEY上的设计</h2><p>a.首先Row-key的设计要保证唯一性，我们将手机号码倒置+时间戳和详单专业配置匹配，可以保证其唯一性。<br>b.其次Row-key在保证唯一性前提下，还需要尽量缩小Row-key占用的字节数，这样可以提高搜索效率，缩小搜索范围。<br>c.接着要考虑Row-key设计对访问热点和存储负载的尽量分散，比如说手机号码这一类从13开始就有很多号段很类似的，如果直接使用手机号码也可以达到唯一性，但是这样会让Row-key哈希后存储的很集中 随之访问热点也会很集中对于Region是很大的负担，也达不到应有的效率。<br>但是倒置的话会让尽量分散开，保证了效率和负载。<br>ex：put ‘sdetail_201704’,’05186155281         P20170418076652A60A742F2E’,’c1:d1’,’P|P11|PW|||18255168150|20170418|092802|551|LBMP20140228551.087|1O2000000000000000|02280928005890|1|1|000000||5515515101366|5515515101366|9000181003|5|0|100798024434565280|5|||||201704218000000|5|5|5|||$’</p>
+<p>就例如上面：05186155281         P20170418076652A60A742F2E 这种Row-key去设计</p>
+<h2 id="3、再说说BOSS-Java化项目调用HBase的地方"><a href="#3、再说说BOSS-Java化项目调用HBase的地方" class="headerlink" title="3、再说说BOSS Java化项目调用HBase的地方"></a>3、再说说BOSS Java化项目调用HBase的地方</h2><p>其实本身HBase已经提供了很好的对Java API的支持比如Get Scan这一类，但是为了保证业务逻辑的分离，公司计费方面负责详单数据处理，于是让计费侧做了接口我们来调用。</p>
+<p>调用的方式就是很简单，和计费侧契约规定使用定长的TCP协议来接收返回数据，前1-2指定Column-key 或者 Qulifimer “DC”（在 Hbase 中，Row-key 加上 CF 加上 Qulifier 再加上一个时间戳才可以定位到一个单元格数据（Hbase 中每个单元格默认有 3 个时间戳的版本数据）），3-6指定消息体（没有HTTP这类消息头什么的，浪费IO），最后几位指定消息长度和是否结束标志（因为详单数据意味着很多，需要循环去取）。这样设计有点类似Dubbo的通信协议，删除无用信息，只保留业务信息和关键信息，提高IO效率。</p>
+<p>然后计费侧根据我们的参数，做一些处理后Scan一定范围，这个范围根据手机号 和 时间就已经变得很小了，所以忽略了查询的时间，IO本身也没有太多无用信息，保证了BOSS查询特大数据量详单的效率。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡☕️<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HBase</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/29/HBase应用场景/HBase应用场景/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/04/06/BOSS系统分布式架构/BOSS系统分布式架构/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          BOSS系统分布式架构
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/10/2017总结/2017总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2017总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
+  
+
+
+
+
+
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "KIbA36EFfbMw9m6JVDOpn6qs-gzGzoHsz",
+            app_key: "lBv7mioqwPobCu6s7NfLDjpL",
+            placeholder: "你瞎说 我听着",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+
+
           </div>
         </div>
       </div>
@@ -229,15 +478,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">我热爱的</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">架构的一点点探索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">2017随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -245,11 +486,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">消息中间件</a>
+                <a href="javascript:void(0)" class="js-tag color2">2017随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">我热爱的</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">消息中间件</a>
               </li>
             
             <div class="clearfix"></div>
