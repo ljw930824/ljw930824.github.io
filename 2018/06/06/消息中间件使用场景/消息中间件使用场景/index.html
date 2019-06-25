@@ -419,6 +419,7 @@
 <script>
    var notify = 'false' == true ? true : false;
    var verify = 'false' == true ? true : false;
+   var visitor = 'true' == true ? true : false;
         new Valine({
             el: '#vcomment',
             notify: notify,
@@ -427,7 +428,7 @@
             app_key: "lBv7mioqwPobCu6s7NfLDjpL",
             placeholder: "你瞎说 我听着",
             avatar:"retro",
-            visitor: true // 阅读量统计
+            visitor: visitor
         });
 </script>
   </section>
@@ -516,19 +517,19 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">架构的一点点探索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">2017随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">我热爱的</a>
+                <a href="javascript:void(0)" class="js-tag color4">架构的一点点探索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">HBase</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">我热爱的</a>
               </li>
              
               <li class="article-tag-list-item">
