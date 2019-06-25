@@ -368,7 +368,6 @@
 
 
 
-
     <section id="comments" class="comments">
       <style>
         .comments{margin:30px;padding:10px;background:#fff}
@@ -380,19 +379,24 @@
 <script>
    var notify = 'false' == true ? true : false;
    var verify = 'false' == true ? true : false;
-    window.onload = function() {
         new Valine({
-            el: '.comment',
+            el: '#vcomment',
             notify: notify,
             verify: verify,
             app_id: "KIbA36EFfbMw9m6JVDOpn6qs-gzGzoHsz",
             app_key: "lBv7mioqwPobCu6s7NfLDjpL",
             placeholder: "你瞎说 我听着",
-            avatar:"mm"
+            avatar:"retro",
+            visitor: true // 阅读量统计
         });
-    }
 </script>
   </section>
+
+
+
+
+
+
 
 
 
@@ -476,15 +480,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HBase</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">2017随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">我热爱的</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">HBase</a>
               </li>
              
               <li class="article-tag-list-item">
