@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/6 | Fanta的博客</title>
+  <title>SpringCloudGateWay使用ReactiveRedis | Fanta的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="why so serious?">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Fanta的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2019/06/index.html">
+  <meta name="description" content="最近在使用SpringCloudGataWay搭建一个路由项目，想着用Reids做一层缓存，而且也想图省事直接使用springcloud自带的限流器，它的限流器很简单就是基于redis实现的令牌桶模式 很方便">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringCloudGateWay使用ReactiveRedis">
+<meta property="og:url" content="http://yoursite.com/2019/07/31/SpringCloudGateWay使用Redis/SpringCloudGateWay使用Redis/index.html">
 <meta property="og:site_name" content="Fanta的博客">
-<meta property="og:description" content="why so serious?">
+<meta property="og:description" content="最近在使用SpringCloudGataWay搭建一个路由项目，想着用Reids做一层缓存，而且也想图省事直接使用springcloud自带的限流器，它的限流器很简单就是基于redis实现的令牌桶模式 很方便">
+<meta property="og:updated_time" content="2019-07-31T15:32:53.222Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fanta的博客">
-<meta name="twitter:description" content="why so serious?">
+<meta name="twitter:title" content="SpringCloudGateWay使用ReactiveRedis">
+<meta name="twitter:description" content="最近在使用SpringCloudGataWay搭建一个路由项目，想着用Reids做一层缓存，而且也想图省事直接使用springcloud自带的限流器，它的限流器很简单就是基于redis实现的令牌桶模式 很方便">
   
     <link rel="alternative" href="/atom.xml" title="Fanta的博客" type="application/atom+xml">
   
@@ -168,98 +169,208 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-SpringCloudGateWay使用Redis/SpringCloudGateWay使用Redis" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+      <header class="article-header">
       
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- head -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4785168521216638"
+             data-ad-slot="6848638987"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/26/阿里巴巴Java开源项目/阿里巴巴Java开源项目/" class="archive-article-date">
-  	<time datetime="2019-06-25T16:38:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-26</time>
-</a>
-        </div>
-    	 
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/26/阿里巴巴Java开源项目/阿里巴巴Java开源项目/">阿里巴巴Java开源项目</a>
+    <h1 class="article-title" itemprop="name">
+      SpringCloudGateWay使用ReactiveRedis
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/07/31/SpringCloudGateWay使用Redis/SpringCloudGateWay使用Redis/" class="archive-article-date">
+  	<time datetime="2019-07-31T15:06:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在使用SpringCloudGataWay搭建一个路由项目，想着用Reids做一层缓存，而且也想图省事直接使用springcloud自带的限流器，它的限流器很简单就是基于redis实现的令牌桶模式 很方便<a id="more"></a><br><br>但可怕的事发生了，他居然用的ReactiveRedis也就是异步实现的一套redis东西，和我们常用的data-redis和jedis这些东西完全不兼容也就是这个东西</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis-reactive&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre><p>本质上它是实现一套异步非阻塞交互的东西，很好用 就是有点难理解，项目中还有很多需要用到Redis的地方，学习成本和可靠性是我需要考虑的。<br><br>所以我只需要限流器使用现成的就可以了，其他的我还是需要按照传统redis的方式去处理，发现他除了网络方面有改写其他和redis很像，于是写了一段RedisConfig。。。果然就是各种报错。发现除了template返回很多异步的处理，连连接工厂也换成了lettuce这当然是要各种报错了。于是查了下lettuce，可以兼容处理成只需要连接的改变即可。<br><br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisConfig</span> </span>&#123;</div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.redis.database&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> database;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.redis.host&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String host;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.redis.password:#&#123;null&#125;&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String password;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.redis.port&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> port;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.redis.timeout&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">long</span> timeout;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.redis.lettuce.pool.max-idle&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> maxIdle;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.redis.lettuce.pool.min-idle&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> minIdle;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.redis.lettuce.pool.max-active&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> maxActive;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.redis.lettuce.pool.max-wait&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">long</span> maxWait;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 缓存有效期</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> Duration entryTtl = Duration.ofHours(<span class="number">24L</span>);</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 连接超时</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> Duration connectTimeout = Duration.ofSeconds(<span class="number">15L</span>);</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 读取超时</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> Duration readTimeout = Duration.ofSeconds(<span class="number">30L</span>);</div><div class="line"></div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function">LettuceConnectionFactory <span class="title">lettuceConnectionFactory</span><span class="params">(GenericObjectPoolConfig genericObjectPoolConfig)</span> </span>&#123;</div><div class="line">        <span class="comment">// 单机版配置</span></div><div class="line">        RedisStandaloneConfiguration redisStandaloneConfiguration = <span class="keyword">new</span> RedisStandaloneConfiguration();</div><div class="line">        redisStandaloneConfiguration.setDatabase(database);</div><div class="line">        redisStandaloneConfiguration.setHostName(host);</div><div class="line">        redisStandaloneConfiguration.setPort(port);</div><div class="line">        redisStandaloneConfiguration.setPassword(RedisPassword.of(password));</div><div class="line"></div><div class="line">        <span class="comment">// 集群版配置</span></div><div class="line"><span class="comment">//        RedisClusterConfiguration redisClusterConfiguration = new RedisClusterConfiguration();</span></div><div class="line"><span class="comment">//        String[] serverArray = clusterNodes.split(",");</span></div><div class="line"><span class="comment">//        Set&lt;RedisNode&gt; nodes = new HashSet&lt;RedisNode&gt;();</span></div><div class="line"><span class="comment">//        for (String ipPort : serverArray) &#123;</span></div><div class="line"><span class="comment">//            String[] ipAndPort = ipPort.split(":");</span></div><div class="line"><span class="comment">//            nodes.add(new RedisNode(ipAndPort[0].trim(), Integer.valueOf(ipAndPort[1])));</span></div><div class="line"><span class="comment">//        &#125;</span></div><div class="line"><span class="comment">//        redisClusterConfiguration.setPassword(RedisPassword.of(password));</span></div><div class="line"><span class="comment">//        redisClusterConfiguration.setClusterNodes(nodes);</span></div><div class="line"><span class="comment">//        redisClusterConfiguration.setMaxRedirects(maxRedirects);</span></div><div class="line"></div><div class="line">        LettuceClientConfiguration clientConfig = LettucePoolingClientConfiguration.builder()</div><div class="line">                .commandTimeout(Duration.ofMillis(timeout))</div><div class="line">                .poolConfig(genericObjectPoolConfig)</div><div class="line">                .build();</div><div class="line">        LettuceConnectionFactory factory = <span class="keyword">new</span> LettuceConnectionFactory(redisStandaloneConfiguration, clientConfig);</div><div class="line">        <span class="keyword">return</span> factory;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * GenericObjectPoolConfig 连接池配置</div><div class="line">     *</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> GenericObjectPoolConfig <span class="title">genericObjectPoolConfig</span><span class="params">()</span> </span>&#123;</div><div class="line">        GenericObjectPoolConfig genericObjectPoolConfig = <span class="keyword">new</span> GenericObjectPoolConfig();</div><div class="line">        genericObjectPoolConfig.setMaxIdle(maxIdle);</div><div class="line">        genericObjectPoolConfig.setMinIdle(minIdle);</div><div class="line">        genericObjectPoolConfig.setMaxTotal(maxActive);</div><div class="line">        genericObjectPoolConfig.setMaxWaitMillis(maxWait);</div><div class="line">        <span class="keyword">return</span> genericObjectPoolConfig;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 实例化 RedisTemplate 对象</div><div class="line">     *</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> RedisTemplate&lt;String, Object&gt; <span class="title">functionDomainRedisTemplate</span><span class="params">()</span> </span>&#123;</div><div class="line">        RedisTemplate&lt;String, Object&gt; redisTemplate = <span class="keyword">new</span> RedisTemplate&lt;&gt;();</div><div class="line">        initDomainRedisTemplate(redisTemplate, lettuceConnectionFactory(genericObjectPoolConfig()));</div><div class="line">        <span class="keyword">return</span> redisTemplate;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 设置数据存入 redis 的序列化方式</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> redisTemplate</div><div class="line">     * <span class="doctag">@param</span> factory</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initDomainRedisTemplate</span><span class="params">(RedisTemplate&lt;String, Object&gt; redisTemplate, RedisConnectionFactory factory)</span> </span>&#123;</div><div class="line">        redisTemplate.setKeySerializer(<span class="keyword">new</span> StringRedisSerializer());</div><div class="line">        redisTemplate.setValueSerializer(<span class="keyword">new</span> KryoRedisSerializer&lt;&gt;(Object.class));</div><div class="line">        redisTemplate.setHashKeySerializer(<span class="keyword">new</span> StringRedisSerializer());</div><div class="line">        redisTemplate.setHashValueSerializer(<span class="keyword">new</span> KryoRedisSerializer&lt;&gt;(Object.class));</div><div class="line">        ParserConfig.getGlobalInstance().setAutoTypeSupport(<span class="keyword">true</span>);</div><div class="line">        redisTemplate.setConnectionFactory(factory);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 实例化 HashOperations 对象,可以使用 Hash 类型操作</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> redisTemplate</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> HashOperations&lt;String, String, Object&gt; <span class="title">hashOperations</span><span class="params">(RedisTemplate&lt;String, Object&gt; redisTemplate)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> redisTemplate.opsForHash();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 实例化 ValueOperations 对象,可以使用 String 操作</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> redisTemplate</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> ValueOperations&lt;String, Object&gt; <span class="title">valueOperations</span><span class="params">(RedisTemplate&lt;String, Object&gt; redisTemplate)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> redisTemplate.opsForValue();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 实例化 ListOperations 对象,可以使用 List 操作</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> redisTemplate</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> ListOperations&lt;String, Object&gt; <span class="title">listOperations</span><span class="params">(RedisTemplate&lt;String, Object&gt; redisTemplate)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> redisTemplate.opsForList();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 实例化 SetOperations 对象,可以使用 Set 操作</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> redisTemplate</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> SetOperations&lt;String, Object&gt; <span class="title">setOperations</span><span class="params">(RedisTemplate&lt;String, Object&gt; redisTemplate)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> redisTemplate.opsForSet();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 实例化 ZSetOperations 对象,可以使用 ZSet 操作</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> redisTemplate</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> ZSetOperations&lt;String, Object&gt; <span class="title">zSetOperations</span><span class="params">(RedisTemplate&lt;String, Object&gt; redisTemplate)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> redisTemplate.opsForZSet();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">​</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡☕️<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">开源项目</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SpringCloudGateWay</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/07/31/SpringCloudGateWay使用Redis/SpringCloudGateWay使用Redis/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/23/如何超过大多数人/如何超过大多数人/" class="archive-article-date">
-  	<time datetime="2019-06-23T04:40:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/23/如何超过大多数人/如何超过大多数人/">如何超过大多数人</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/06/26/阿里巴巴Java开源项目/阿里巴巴Java开源项目/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">阿里巴巴Java开源项目</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
 
-    
+
+
+
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- head -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4785168521216638"
+         data-ad-slot="6848638987"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+   var visitor = 'true' == true ? true : false;
+        new Valine({
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "KIbA36EFfbMw9m6JVDOpn6qs-gzGzoHsz",
+            app_key: "lBv7mioqwPobCu6s7NfLDjpL",
+            placeholder: "你瞎说 我听着",
+            avatar:"retro",
+            visitor: visitor
+        });
+</script>
+  </section>
+
+
+
+
+
+
+
 
 
           </div>
@@ -279,8 +390,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
