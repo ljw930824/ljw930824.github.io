@@ -11,13 +11,15 @@
   <meta name="description" content="首先说下安徽移动系统BOSS系统的基本属性和移动系统中承担的所要职务整个移动系统中其实是分了很多中心的，BOSS（基本业务支撑）、CRM（客户关系处理）、订单中心（为了营业统计各种业务办理和缴费等比较重要操作的数据报表来源）、ESB（服务处理总线）等。其中就BOSS分为了三个子系统，账务处理、计费业务、账务管理。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BOSS系统分布式架构">
-<meta property="og:url" content="http://yoursite.com/2018/04/06/BOSS系统分布式架构/BOSS系统分布式架构/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/04/06/BOSS%E7%B3%BB%E7%BB%9F%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/BOSS%E7%B3%BB%E7%BB%9F%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/index.html">
 <meta property="og:site_name" content="Fanta的博客">
 <meta property="og:description" content="首先说下安徽移动系统BOSS系统的基本属性和移动系统中承担的所要职务整个移动系统中其实是分了很多中心的，BOSS（基本业务支撑）、CRM（客户关系处理）、订单中心（为了营业统计各种业务办理和缴费等比较重要操作的数据报表来源）、ESB（服务处理总线）等。其中就BOSS分为了三个子系统，账务处理、计费业务、账务管理。">
-<meta property="og:updated_time" content="2018-04-07T13:54:52.178Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-04-06T13:07:15.000Z">
+<meta property="article:modified_time" content="2018-04-07T13:54:52.178Z">
+<meta property="article:author" content="Fanta">
+<meta property="article:tag" content="架构的一点点探索">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BOSS系统分布式架构">
-<meta name="twitter:description" content="首先说下安徽移动系统BOSS系统的基本属性和移动系统中承担的所要职务整个移动系统中其实是分了很多中心的，BOSS（基本业务支撑）、CRM（客户关系处理）、订单中心（为了营业统计各种业务办理和缴费等比较重要操作的数据报表来源）、ESB（服务处理总线）等。其中就BOSS分为了三个子系统，账务处理、计费业务、账务管理。">
   
     <link rel="alternative" href="/atom.xml" title="Fanta的博客" type="application/atom+xml">
   
@@ -51,7 +53,7 @@
 
   
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <!-- 烟花效果 -->
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
@@ -70,10 +72,8 @@
 			<img src="/sanjin.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Fanta</a></h1>
+		  <h1 class="header-author"><a href="/">undefined</a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">why so serious?</p>
 		
 
 		<nav class="header-menu">
@@ -126,10 +126,8 @@
 				<img src="/sanjin.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Fanta</h1>
+			  <h1 class="header-author js-header-author">undefined</h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>why so serious?<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -199,7 +197,7 @@
   
 
         
-        <a href="/2018/04/06/BOSS系统分布式架构/BOSS系统分布式架构/" class="archive-article-date">
+        <a href="/2018/04/06/BOSS%E7%B3%BB%E7%BB%9F%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/BOSS%E7%B3%BB%E7%BB%9F%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/" class="archive-article-date">
   	<time datetime="2018-04-06T13:07:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-06</time>
 </a>
         
@@ -207,7 +205,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先说下安徽移动系统BOSS系统的基本属性和移动系统中承担的所要职务<br>整个移动系统中其实是分了很多中心的，BOSS（基本业务支撑）、CRM（客户关系处理）、订单中心（为了营业统计各种业务办理和缴费等比较重要操作的数据报表来源）、ESB（服务处理总线）等。其中就BOSS分为了三个子系统，账务处理、计费业务、账务管理。<a id="more"></a><br>自己所在的部门也就是账务管理，处理移动各种账务关系的部门 比如BOSS比较重要的功能发票、缴费等都放在了我们部门上。</p>
+        <p>首先说下安徽移动系统BOSS系统的基本属性和移动系统中承担的所要职务<br>整个移动系统中其实是分了很多中心的，BOSS（基本业务支撑）、CRM（客户关系处理）、订单中心（为了营业统计各种业务办理和缴费等比较重要操作的数据报表来源）、ESB（服务处理总线）等。其中就BOSS分为了三个子系统，账务处理、计费业务、账务管理。<span id="more"></span><br>自己所在的部门也就是账务管理，处理移动各种账务关系的部门 比如BOSS比较重要的功能发票、缴费等都放在了我们部门上。</p>
 <p>账务管理系统Java化和其他移动移动Java化所使用的架构模式是一致的<br>系统基本的框架采用Spring和iBatis搭配使用，数据库使用Oracle延续之前C使用的数据库系统，在Java之前也做了很多调研使用MySQL、PostgreSQL这样的关系数据库，但是考虑到Java化项目比较紧急 数据库改用调研也就搁置了（其实本身想使用MySQL做分布式数据库的，但是考虑到老员工都比较熟悉Oracl也就推了又推）。在我看来使用MySQL是很好的选择，本身他对分布式就有很好的支持，几个库搭建分布式数据库可以缓轻很大来在缴费这一边的业务来源入库，还有每个月欠费预销这种业务对数据库IO的折磨。<br>当然除了基本的Spring和iBatis还有很多公司自研的很多框架，基本上都是在开源项目上的增加业务。</p>
 <p>然后说说整个移动系统的架构模式，基本的分布式RPC框架，因为前面也说了移动系统的子中心很多，跨中心这种交互就使用了业内很成熟的RPC框架模式，采用了Alibaba的Dubbo作为基础框架改写自有的一套框架。<br>其实基础的核心都没有变，Netty作为网络通信，ZooKeeper作为注册中心来使用，要说改动了也就是中间加了很多自定义的Log功能和ESB服务缓存的功能。<br>ESB这一块的注册服务缓存，都用的Oracle自家的Coherence缓存来实现的，对于这个缓存自己也不是很了解，只知道他在永久缓存上性能很突出，零时缓存就做的很不足。</p>
 <p>—-To Be Continue（最近睡眠不足，等下再写）</p>
@@ -306,7 +304,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/04/06/BOSS系统分布式架构/BOSS系统分布式架构/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/04/06/BOSS%E7%B3%BB%E7%BB%9F%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/BOSS%E7%B3%BB%E7%BB%9F%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -320,7 +318,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/06/06/消息中间件使用场景/消息中间件使用场景/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/06/06/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -330,7 +328,7 @@
     </a>
   
   
-    <a href="/2018/03/29/HBase应用场景/HBase应用场景/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/03/29/HBase%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/HBase%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">HBase应用场景</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -460,18 +458,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">奇淫巧技</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">20 Predictions</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Spring Securit 5.2.x 不支持Authorization Server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">2017随笔</a>
               </li>
              
@@ -480,7 +466,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SpringCloudGateWay</a>
+                <a href="javascript:void(0)" class="js-tag color5">奇淫巧技</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,15 +478,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Spring Securit 5.2.x 不支持Authorization Server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SpringCloudGateWay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">M1芯片</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">好文转载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">开发流程指北</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,7 +498,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">好文转载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">消息中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">开发流程指北</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,7 +514,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">消息中间件</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">20 Predictions</a>
               </li>
             
             <div class="clearfix"></div>

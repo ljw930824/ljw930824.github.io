@@ -11,19 +11,21 @@
   <meta name="description" content="消息中间件出现的场景：BOSS中心和CRM中心存在不同的数据库，一些诸如停开机用户数据同步和缴费数据同步的过程以前老系统是使用应用集成平台扫描表做数据搬运的动作。搬运过程中对数据库的压力和IO的压力都很大，处理效率低并且对传输过程中丢失的数据无法追踪，无重试和保证机制。在这个需求下，将使用到同步的场景采用消息中间件来触发。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="消息中间件使用场景">
-<meta property="og:url" content="http://yoursite.com/2018/06/06/消息中间件使用场景/消息中间件使用场景/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/06/06/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/index.html">
 <meta property="og:site_name" content="Fanta的博客">
 <meta property="og:description" content="消息中间件出现的场景：BOSS中心和CRM中心存在不同的数据库，一些诸如停开机用户数据同步和缴费数据同步的过程以前老系统是使用应用集成平台扫描表做数据搬运的动作。搬运过程中对数据库的压力和IO的压力都很大，处理效率低并且对传输过程中丢失的数据无法追踪，无重试和保证机制。在这个需求下，将使用到同步的场景采用消息中间件来触发。">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/images/tu.jpg">
 <meta property="og:image" content="http://yoursite.com/images/xxgn.png">
 <meta property="og:image" content="http://yoursite.com/images/mysql.jpg">
 <meta property="og:image" content="http://yoursite.com/images/ysj.png">
 <meta property="og:image" content="http://yoursite.com/images/ztjg.jpg">
 <meta property="og:image" content="http://yoursite.com/images/dygx.png">
-<meta property="og:updated_time" content="2018-12-10T07:14:03.256Z">
+<meta property="article:published_time" content="2018-06-06T09:30:14.000Z">
+<meta property="article:modified_time" content="2018-12-10T07:14:03.256Z">
+<meta property="article:author" content="Fanta">
+<meta property="article:tag" content="消息中间件">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="消息中间件使用场景">
-<meta name="twitter:description" content="消息中间件出现的场景：BOSS中心和CRM中心存在不同的数据库，一些诸如停开机用户数据同步和缴费数据同步的过程以前老系统是使用应用集成平台扫描表做数据搬运的动作。搬运过程中对数据库的压力和IO的压力都很大，处理效率低并且对传输过程中丢失的数据无法追踪，无重试和保证机制。在这个需求下，将使用到同步的场景采用消息中间件来触发。">
 <meta name="twitter:image" content="http://yoursite.com/images/tu.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Fanta的博客" type="application/atom+xml">
@@ -58,7 +60,7 @@
 
   
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <!-- 烟花效果 -->
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
@@ -77,10 +79,8 @@
 			<img src="/sanjin.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Fanta</a></h1>
+		  <h1 class="header-author"><a href="/">undefined</a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">why so serious?</p>
 		
 
 		<nav class="header-menu">
@@ -133,10 +133,8 @@
 				<img src="/sanjin.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Fanta</h1>
+			  <h1 class="header-author js-header-author">undefined</h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>why so serious?<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -206,7 +204,7 @@
   
 
         
-        <a href="/2018/06/06/消息中间件使用场景/消息中间件使用场景/" class="archive-article-date">
+        <a href="/2018/06/06/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" class="archive-article-date">
   	<time datetime="2018-06-06T09:30:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-06</time>
 </a>
         
@@ -214,50 +212,60 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>消息中间件出现的场景：BOSS中心和CRM中心存在不同的数据库，一些诸如停开机用户数据同步和缴费数据同步的过程以前老系统是使用应用集成平台扫描表做数据搬运的动作。搬运过程中对数据库的压力和IO的压力都很大，处理效率低并且对传输过程中丢失的数据无法追踪，无重试和保证机制。在这个需求下，将使用到同步的场景采用消息中间件来触发。<a id="more"></a></p>
+        <p>消息中间件出现的场景：BOSS中心和CRM中心存在不同的数据库，一些诸如停开机用户数据同步和缴费数据同步的过程以前老系统是使用应用集成平台扫描表做数据搬运的动作。搬运过程中对数据库的压力和IO的压力都很大，处理效率低并且对传输过程中丢失的数据无法追踪，无重试和保证机制。在这个需求下，将使用到同步的场景采用消息中间件来触发。<span id="more"></span></p>
 <p>具体流程是：将需要同步的主题和数据从对象池中取出，没有的话就新建一个，但主题保证是已有的。通过NIO将消息主体等内容发送到消息中间件，并对数据做个存储（Mysql集群存，主备相互备份）数据库的建模按照一个主题来建表，队列分区建表有点浪费资源，消息中间件根据主题发送到相应的主机上去处理，如果因为任何原因失败了，将重试三次，三次后仍失败将消息状态置为失败。<br>消息发送到相应主机后，存储到消息接口表中，根据进程扫描本地接口表做同步处理。处理成功后反馈给消息中间件，然后再发送消息给生产者告知。至此消息处理完毕。（ACK过程，第一次发送是SEND状态，第二次发送是COMMIT状态，全部状态都得到反馈，消息发送成功）</p>
 <p>可以说说消息中间件使用的几点技术：</p>
-<p>1.整体消息中间件系统参考<br>这个是一个真实生产化的消息系统案例，由 1 个架构师 +2 个高级工程师设计开发，第一期研发测试到上生产约 3 个月，目前该系统日处理消息量过亿。<br>假定公司因为业务需要，要构建一套分布式消息系统 MQ，类似 Kafka 这样的，这个问题看起来很大很复杂，但是如果你抽丝剥茧，透过现象看本质，Kafka 这样的消息系统本质上是下图这样的抽象概念：<br><img src="/images/tu.jpg" alt=""></p>
+<p>1.整体消息中间件系统参考<br>这个是一个真实生产化的消息系统案例，由 1 个架构师 +2 个高级工程师设计开发，第一期研发测试到上生产约 3 个月，目前该系统日处理消息量过亿。<br>假定公司因为业务需要，要构建一套分布式消息系统 MQ，类似 Kafka 这样的，这个问题看起来很大很复杂，但是如果你抽丝剥茧，透过现象看本质，Kafka 这样的消息系统本质上是下图这样的抽象概念：<br><img src="/images/tu.jpg"></p>
 <ol>
 <li>队列其实就是类似数组一样的结构（用数组建模有个好处，有索引可以重复消费），里头存放消息 (Msg)，数组一头进消息，一头出消息；</li>
 <li>左边是若干生产者 (Producer)，往队列里头发消息；</li>
 <li>右边是若干消费者 (Consumer)，从队列里头消费消息；</li>
 <li>对于生产者和消费者来说，他们不关心队列实现细节，所以给队列一个更抽象的名字，叫主题 (Topic)；</li>
-<li>考虑到系统的扩容和分布式能力，一般一个主题由若干个队列组成，这些队列也叫分区 (Partition)，而且这些队列可能还是分布在不同机器上的，例如下图中 Topic A 的两个队列分布在 DataNode1 节点上，另外两个队列分布在 DataNode2 节点上，这样以后 Topic 可以按需扩容，DataNode 也可以按需增加。当然这些细节由 MQ 系统屏蔽，用户只关心主题，不关心底层实现。<br><img src="/images/xxgn.png" alt=""></li>
+<li>考虑到系统的扩容和分布式能力，一般一个主题由若干个队列组成，这些队列也叫分区 (Partition)，而且这些队列可能还是分布在不同机器上的，例如下图中 Topic A 的两个队列分布在 DataNode1 节点上，另外两个队列分布在 DataNode2 节点上，这样以后 Topic 可以按需扩容，DataNode 也可以按需增加。当然这些细节由 MQ 系统屏蔽，用户只关心主题，不关心底层实现。<br><img src="/images/xxgn.png"></li>
 </ol>
-<p>单个数组队列的建模是整个 MQ 系统的关键，我们知道 Kafka 使用 append only file 建模队列，存取速度快。假设我们要存业务数据需要更高可靠性，也可以用数据库表来建模数组队列，如下图所示：<br><img src="/images/mysql.jpg" alt=""></p>
-<p>一个队列 (或者一个分区) 对应一张数据库表，表中的一个记录就是一条消息，表采用自增 id，相当于数组索引。这张表是 insert only 的，且 MySQL 会自动对自增 id 建优化索引，没有其它索引，所以插入和按 id 查找速度都非常快。<br>下面是总体元数据模型：<br><img src="/images/ysj.png" alt=""></p>
+<p>单个数组队列的建模是整个 MQ 系统的关键，我们知道 Kafka 使用 append only file 建模队列，存取速度快。假设我们要存业务数据需要更高可靠性，也可以用数据库表来建模数组队列，如下图所示：<br><img src="/images/mysql.jpg"></p>
+<p>一个队列 (或者一个分区) 对应一张数据库表，表中的一个记录就是一条消息，表采用自增 id，相当于数组索引。这张表是 insert only 的，且 MySQL 会自动对自增 id 建优化索引，没有其它索引，所以插入和按 id 查找速度都非常快。<br>下面是总体元数据模型：<br><img src="/images/ysj.png"></p>
 <ol>
-<li>一个主题 Topic 对应若干个队列 Queue</li>
-<li>一个数据节点 DataNode 上可以住若干个队列 Queue</li>
-<li>消费者 Consumer 和队列 Queue 之间是多对多关系，通过消费者偏移 Consumer Offset 进行关联</li>
-<li><p>一个消费者组 Consumer Group 里头有若干个消费者 Consumer，它们共同消费同一个主题 Topic<br>至此，我们对 MQ 的抽象建模工作完成，下面的工作是将这个模型映射到具体实现，经过分解，整个系统由若干个子模块组成，每个子模块实现后拼装起来的 MQ 总体架构如下图所示：<br><img src="/images/ztjg.jpg" alt=""></p>
+<li><p>一个主题 Topic 对应若干个队列 Queue</p>
+</li>
+<li><p>一个数据节点 DataNode 上可以住若干个队列 Queue</p>
+</li>
+<li><p>消费者 Consumer 和队列 Queue 之间是多对多关系，通过消费者偏移 Consumer Offset 进行关联</p>
+</li>
+<li><p>一个消费者组 Consumer Group 里头有若干个消费者 Consumer，它们共同消费同一个主题 Topic<br>至此，我们对 MQ 的抽象建模工作完成，下面的工作是将这个模型映射到具体实现，经过分解，整个系统由若干个子模块组成，每个子模块实现后拼装起来的 MQ 总体架构如下图所示：<br><img src="/images/ztjg.jpg"></p>
 </li>
 <li><p>Admin 模块管理数据库节点，生产者，消费者 (组)，主题，队列，消费偏移等元数据信息。</p>
 </li>
-<li>Broker 模块定期从 Admin 数据库同步元数据，接受生产者消息，按路由规则将消息存入对应的数据库表 (队列) 中；同时接受消费者请求，根据元数据从对应数据库表读取消息并发回消费者端。Broker 模块也接受消费者定期提交消费偏移。</li>
-<li>Producer 接受应用发送消息请求，将消息发送到 Broker；</li>
-<li>Consumer 从 Broker 拉取消息，供上层应用进一步消费；</li>
-<li>客户端和 Broker 之间走 Thrift over HTTP 协议，中间通过域名走 Nginx 代理转发；</li>
-<li>这个设计 Broker 是无状态，易于扩展。<br>架构思维总结：<br>整个架构设计的思路体现了先总体抽象，再分解按模块抽象并实现，最后组合成完整的 MQ 系统，也就是 抽象 + 分治。这个 MQ 的实现工作量并不大，属于小型系统范畴，初期设计和开发由 1 个架构师 +2 个中高级工程师可以搞定。<br>在初期研发和上生产之后，根据用户的不断反馈，系统设计经过多次优化和调整，符合三分架构、七分演化的 演化式架构 理念。目前该系统已经进入 V2 版本的架构和研发，其架构仍在持续演化当中，用户需求的多样性和对系统灵活性的更高要求，是系统架构演化的主要推动力。</li>
+<li><p>Broker 模块定期从 Admin 数据库同步元数据，接受生产者消息，按路由规则将消息存入对应的数据库表 (队列) 中；同时接受消费者请求，根据元数据从对应数据库表读取消息并发回消费者端。Broker 模块也接受消费者定期提交消费偏移。</p>
+</li>
+<li><p>Producer 接受应用发送消息请求，将消息发送到 Broker；</p>
+</li>
+<li><p>Consumer 从 Broker 拉取消息，供上层应用进一步消费；</p>
+</li>
+<li><p>客户端和 Broker 之间走 Thrift over HTTP 协议，中间通过域名走 Nginx 代理转发；</p>
+</li>
+<li><p>这个设计 Broker 是无状态，易于扩展。<br>架构思维总结：<br>整个架构设计的思路体现了先总体抽象，再分解按模块抽象并实现，最后组合成完整的 MQ 系统，也就是 抽象 + 分治。这个 MQ 的实现工作量并不大，属于小型系统范畴，初期设计和开发由 1 个架构师 +2 个中高级工程师可以搞定。<br>在初期研发和上生产之后，根据用户的不断反馈，系统设计经过多次优化和调整，符合三分架构、七分演化的 演化式架构 理念。目前该系统已经进入 V2 版本的架构和研发，其架构仍在持续演化当中，用户需求的多样性和对系统灵活性的更高要求，是系统架构演化的主要推动力。</p>
+</li>
 </ol>
 <p>2.具体几个使用关键技术<br>a.首先是apache的commonpool2 Jar包 其实也是缓存IO的一种方式<br>项目启动起来的时候，会static创建一个GenericKeyedObjectPool对象，然后将常用的ClientID放进去对象池初始化使用，方便后面服务调用时候每次发送前的处理。<br>往对象池中塞对象GenericKeyedObjectPool（属于apache.commonpool2包中的接口），这个对象池技术运用的范围就很广了。比如Jedis框架中使用的对象池缓存技术就是依赖的commonpool2 Jar包去实现的。</p>
 <p>几个概念：<br>对象池(ObjectPool): 掌管对象的生命周期，获取，激活，验证，钝化，销毁等<br>池对象(PooledObject): 池化对象，是需要放到ObjectPool对象的一个包装类。添加了一些附加的信息，比如说状态信息，创建时间，激活时间，关闭时间等<br>池对象工厂(PooledObjectFactory): 用来创建池对象, 将不用的池对象进行钝化(passivateObject), 对要使用的池对象进行激活(activeObject), 对池对象进行验证(validateObject), 对有问题的池对象进行销毁(destroyObject)等工作<br>　　对象池化主要用于减少对象在创建和销毁上面的开销，如果是小对象则不需要池化，如果是大对象可以考虑池化，对于像数据库连接、网络之类的重对象来说是很有必要池化的，开发者自己根据需求判断，如果创建某种对象成为了影响程序性能的关键因素则需要池化。</p>
-<p>关系图如下：<br><img src="/images/dygx.png" alt=""></p>
-<h3 id="ObjectPool"><a href="#ObjectPool" class="headerlink" title="ObjectPool"></a>ObjectPool</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">//从池中获取对象</div><div class="line">T borrowObject() throws Exception, NoSuchElementException, IllegalStateException;</div><div class="line"></div><div class="line">//将对象放回池中</div><div class="line">void returnObject(T obj) throws Exception;</div><div class="line"></div><div class="line">//废弃对象</div><div class="line">void invalidateObject(T obj) throws Exception;</div><div class="line"></div><div class="line">//添加对象</div><div class="line">void addObject() throws Exception, IllegalStateException, UnsupportedOperationException;</div><div class="line"></div><div class="line">//获取空闲对象个数</div><div class="line">int getNumIdle();</div><div class="line"></div><div class="line">//获取活跃对象个数</div><div class="line">int getNumActive();</div><div class="line"></div><div class="line">//清除池，池可用</div><div class="line">void clear() throws Exception, UnsupportedOperationException;</div><div class="line"></div><div class="line">//关闭池，池不可用</div><div class="line">void close();</div></pre></td></tr></table></figure>
-<h3 id="PooledObject"><a href="#PooledObject" class="headerlink" title="PooledObject"></a>PooledObject</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">//获得目标对象</div><div class="line">T getObject();</div><div class="line"></div><div class="line">long getCreateTime();</div><div class="line"></div><div class="line">long getActiveTimeMillis();</div><div class="line"></div><div class="line">long getIdleTimeMillis();</div><div class="line"></div><div class="line">long getLastBorrowTime();</div><div class="line"></div><div class="line">long getLastReturnTime();</div><div class="line"></div><div class="line">long getLastUsedTime();</div><div class="line"></div><div class="line">boolean startEvictionTest();</div><div class="line"></div><div class="line">boolean endEvictionTest(Deque&lt;PooledObject&lt;T&gt;&gt; idleQueue);</div><div class="line"></div><div class="line">boolean allocate();</div><div class="line"></div><div class="line">boolean deallocate();</div><div class="line"></div><div class="line">void invalidate();</div><div class="line"></div><div class="line">void setLogAbandoned(boolean logAbandoned);</div><div class="line"></div><div class="line">void use();</div><div class="line"></div><div class="line">void printStackTrace(PrintWriter writer);</div><div class="line"></div><div class="line">PooledObjectState getState();</div><div class="line"></div><div class="line">void markAbandoned();</div><div class="line"></div><div class="line">void markReturning();</div></pre></td></tr></table></figure>
-<h3 id="PooledObjectFactory"><a href="#PooledObjectFactory" class="headerlink" title="PooledObjectFactory"></a>PooledObjectFactory</h3><p>// 创建一个新对象;当对象池中的对象个数不足时,将会使用此方法来”输出”一个新的”对象”,并交付给对象池管理<br>PooledObject<t> makeObject() throws Exception;</t></p>
-<p>// 销毁对象,如果对象池中检测到某个”对象”idle的时间超时,或者操作者向对象池”归还对象”时检测到”对象”已经无效,那么此时将会导致”对象销毁”;<br>// “销毁对象”的操作设计相差甚远,但是必须明确:当调用此方法时,”对象”的生命周期必须结束.如果object是线程,那么此时线程必须退出;<br>// 如果object是socket操作,那么此时socket必须关闭;如果object是文件流操作,那么此时”数据flush”且正常关闭.<br>void destroyObject(PooledObject<t> p) throws Exception;</t></p>
-<p>// 检测对象是否”有效”;Pool中不能保存无效的”对象”,因此”后台检测线程”会周期性的检测Pool中”对象”的有效性,如果对象无效则会导致此对象从Pool中移除,并destroy;<br>// 此外在调用者从Pool获取一个”对象”时,也会检测”对象”的有效性,确保不能讲”无效”的对象输出给调用者;<br>// 当调用者使用完毕将”对象归还”到Pool时,仍然会检测对象的有效性.所谓有效性,就是此”对象”的状态是否符合预期,是否可以对调用者直接使用;<br>// 如果对象是Socket,那么它的有效性就是socket的通道是否畅通/阻塞是否超时等.<br>boolean validateObject(PooledObject<t> p);</t></p>
-<p>// “激活”对象,当Pool中决定移除一个对象交付给调用者时额外的”激活”操作,比如可以在activateObject方法中”重置”参数列表让调用者使用时感觉像一个”新创建”的对象一样;如果object是一个线程,可以在”激活”操作中重置”线程中断标记”,或者让线程从阻塞中唤醒等;<br>// 如果object是一个socket,那么可以在”激活操作”中刷新通道,或者对socket进行链接重建(假如socket意外关闭)等.<br>void activateObject(PooledObject<t> p) throws Exception;</t></p>
-<p>// “钝化”对象,当调用者”归还对象”时,Pool将会”钝化对象”；钝化的言外之意,就是此”对象”暂且需要”休息”一下.<br>// 如果object是一个socket,那么可以passivateObject中清除buffer,将socket阻塞;如果object是一个线程,可以在”钝化”操作中将线程sleep或者将线程中的某个对象wait.需要注意的时,activateObject和passivateObject两个方法需要对应,避免死锁或者”对象”状态的混乱.<br>void passivateObject(PooledObject<t> p) throws Exception;`</t></p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight plain"><figcaption><span>class ConnectionTestFactory extends BaseKeyedPooledObjectFactory<string, connectiontest=""> &#123;    </string,></span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">    private static final Logger LOGGER = LoggerFactory.getLogger(ConnectionTestFactory.class);</div><div class="line">    </div><div class="line">    @Override    </div><div class="line">    public ConnectionTest create(String key) throws Exception &#123;      </div><div class="line">        return new ConnectionTest(key);    </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    @Override   </div><div class="line">    public PooledObject&lt;ConnectionTest&gt; wrap(ConnectionTest value) &#123;            </div><div class="line">        return new DefaultPooledObject&lt;&gt;(value);    </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public static void main(String[] args) &#123;        </div><div class="line">        KeyedObjectPool&lt;String, ConnectionTest&gt; objectPool = new GenericKeyedObjectPool&lt;&gt;(new ConnectionTestFactory());        </div><div class="line">    try &#123;            </div><div class="line">        //添加对象到池，重复的不会重复入池            </div><div class="line">        objectPool.addObject(&quot;1&quot;);            </div><div class="line">        objectPool.addObject(&quot;2&quot;);            </div><div class="line">        objectPool.addObject(&quot;3&quot;);            </div><div class="line">        </div><div class="line">        // 获得对应key的对象            </div><div class="line">        ConnectionTest connectionTest1 = objectPool.borrowObject(&quot;1&quot;);               </div><div class="line">        LOGGER.info(&quot;borrowObject = &#123;&#125;&quot;, connectionTest1);            </div><div class="line">        </div><div class="line">        // 释放对象            </div><div class="line">        objectPool.returnObject(&quot;1&quot;, connectionTest1);            </div><div class="line">        </div><div class="line">        //清除所有的对象            </div><div class="line">        objectPool.clear();        </div><div class="line">&#125; catch (Exception e) &#123;            </div><div class="line">LOGGER.error(&quot;&quot;, e);        </div><div class="line">&#125;    </div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>关系图如下：<br><img src="/images/dygx.png"></p>
+<h3 id="ObjectPool"><a href="#ObjectPool" class="headerlink" title="ObjectPool"></a>ObjectPool</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;从池中获取对象</span><br><span class="line">T borrowObject() throws Exception, NoSuchElementException, IllegalStateException;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;将对象放回池中</span><br><span class="line">void returnObject(T obj) throws Exception;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;废弃对象</span><br><span class="line">void invalidateObject(T obj) throws Exception;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;添加对象</span><br><span class="line">void addObject() throws Exception, IllegalStateException, UnsupportedOperationException;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;获取空闲对象个数</span><br><span class="line">int getNumIdle();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;获取活跃对象个数</span><br><span class="line">int getNumActive();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;清除池，池可用</span><br><span class="line">void clear() throws Exception, UnsupportedOperationException;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;关闭池，池不可用</span><br><span class="line">void close();</span><br></pre></td></tr></table></figure>
+
+<h3 id="PooledObject"><a href="#PooledObject" class="headerlink" title="PooledObject"></a>PooledObject</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;获得目标对象</span><br><span class="line">T getObject();</span><br><span class="line"></span><br><span class="line">long getCreateTime();</span><br><span class="line"></span><br><span class="line">long getActiveTimeMillis();</span><br><span class="line"></span><br><span class="line">long getIdleTimeMillis();</span><br><span class="line"></span><br><span class="line">long getLastBorrowTime();</span><br><span class="line"></span><br><span class="line">long getLastReturnTime();</span><br><span class="line"></span><br><span class="line">long getLastUsedTime();</span><br><span class="line"></span><br><span class="line">boolean startEvictionTest();</span><br><span class="line"></span><br><span class="line">boolean endEvictionTest(Deque&lt;PooledObject&lt;T&gt;&gt; idleQueue);</span><br><span class="line"></span><br><span class="line">boolean allocate();</span><br><span class="line"></span><br><span class="line">boolean deallocate();</span><br><span class="line"></span><br><span class="line">void invalidate();</span><br><span class="line"></span><br><span class="line">void setLogAbandoned(boolean logAbandoned);</span><br><span class="line"></span><br><span class="line">void use();</span><br><span class="line"></span><br><span class="line">void printStackTrace(PrintWriter writer);</span><br><span class="line"></span><br><span class="line">PooledObjectState getState();</span><br><span class="line"></span><br><span class="line">void markAbandoned();</span><br><span class="line"></span><br><span class="line">void markReturning();</span><br></pre></td></tr></table></figure>
+
+<h3 id="PooledObjectFactory"><a href="#PooledObjectFactory" class="headerlink" title="PooledObjectFactory"></a>PooledObjectFactory</h3><p>// 创建一个新对象;当对象池中的对象个数不足时,将会使用此方法来”输出”一个新的”对象”,并交付给对象池管理<br>PooledObject<T> makeObject() throws Exception;</p>
+<p>// 销毁对象,如果对象池中检测到某个”对象”idle的时间超时,或者操作者向对象池”归还对象”时检测到”对象”已经无效,那么此时将会导致”对象销毁”;<br>// “销毁对象”的操作设计相差甚远,但是必须明确:当调用此方法时,”对象”的生命周期必须结束.如果object是线程,那么此时线程必须退出;<br>// 如果object是socket操作,那么此时socket必须关闭;如果object是文件流操作,那么此时”数据flush”且正常关闭.<br>void destroyObject(PooledObject<T> p) throws Exception;</p>
+<p>// 检测对象是否”有效”;Pool中不能保存无效的”对象”,因此”后台检测线程”会周期性的检测Pool中”对象”的有效性,如果对象无效则会导致此对象从Pool中移除,并destroy;<br>// 此外在调用者从Pool获取一个”对象”时,也会检测”对象”的有效性,确保不能讲”无效”的对象输出给调用者;<br>// 当调用者使用完毕将”对象归还”到Pool时,仍然会检测对象的有效性.所谓有效性,就是此”对象”的状态是否符合预期,是否可以对调用者直接使用;<br>// 如果对象是Socket,那么它的有效性就是socket的通道是否畅通/阻塞是否超时等.<br>boolean validateObject(PooledObject<T> p);</p>
+<p>// “激活”对象,当Pool中决定移除一个对象交付给调用者时额外的”激活”操作,比如可以在activateObject方法中”重置”参数列表让调用者使用时感觉像一个”新创建”的对象一样;如果object是一个线程,可以在”激活”操作中重置”线程中断标记”,或者让线程从阻塞中唤醒等;<br>// 如果object是一个socket,那么可以在”激活操作”中刷新通道,或者对socket进行链接重建(假如socket意外关闭)等.<br>void activateObject(PooledObject<T> p) throws Exception;</p>
+<p>// “钝化”对象,当调用者”归还对象”时,Pool将会”钝化对象”；钝化的言外之意,就是此”对象”暂且需要”休息”一下.<br>// 如果object是一个socket,那么可以passivateObject中清除buffer,将socket阻塞;如果object是一个线程,可以在”钝化”操作中将线程sleep或者将线程中的某个对象wait.需要注意的时,activateObject和passivateObject两个方法需要对应,避免死锁或者”对象”状态的混乱.<br>void passivateObject(PooledObject<T> p) throws Exception;`</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight plain"><figcaption><span>class ConnectionTestFactory extends BaseKeyedPooledObjectFactory<String, ConnectionTest> &#123;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">    private static final Logger LOGGER &#x3D; LoggerFactory.getLogger(ConnectionTestFactory.class);</span><br><span class="line">    </span><br><span class="line">    @Override    </span><br><span class="line">    public ConnectionTest create(String key) throws Exception &#123;      </span><br><span class="line">        return new ConnectionTest(key);    </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @Override   </span><br><span class="line">    public PooledObject&lt;ConnectionTest&gt; wrap(ConnectionTest value) &#123;            </span><br><span class="line">        return new DefaultPooledObject&lt;&gt;(value);    </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public static void main(String[] args) &#123;        </span><br><span class="line">        KeyedObjectPool&lt;String, ConnectionTest&gt; objectPool &#x3D; new GenericKeyedObjectPool&lt;&gt;(new ConnectionTestFactory());        </span><br><span class="line">    try &#123;            </span><br><span class="line">        &#x2F;&#x2F;添加对象到池，重复的不会重复入池            </span><br><span class="line">        objectPool.addObject(&quot;1&quot;);            </span><br><span class="line">        objectPool.addObject(&quot;2&quot;);            </span><br><span class="line">        objectPool.addObject(&quot;3&quot;);            </span><br><span class="line">        </span><br><span class="line">        &#x2F;&#x2F; 获得对应key的对象            </span><br><span class="line">        ConnectionTest connectionTest1 &#x3D; objectPool.borrowObject(&quot;1&quot;);               </span><br><span class="line">        LOGGER.info(&quot;borrowObject &#x3D; &#123;&#125;&quot;, connectionTest1);            </span><br><span class="line">        </span><br><span class="line">        &#x2F;&#x2F; 释放对象            </span><br><span class="line">        objectPool.returnObject(&quot;1&quot;, connectionTest1);            </span><br><span class="line">        </span><br><span class="line">        &#x2F;&#x2F;清除所有的对象            </span><br><span class="line">        objectPool.clear();        </span><br><span class="line">&#125; catch (Exception e) &#123;            </span><br><span class="line">LOGGER.error(&quot;&quot;, e);        </span><br><span class="line">&#125;    </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Config详解"><a href="#Config详解" class="headerlink" title="Config详解"></a>Config详解</h3><ul>
 <li>lifo：连接池放池化对象方式，默认为true<br>true：放在空闲队列最前面<br>false：放在空闲队列最后面</li>
 <li>fairness：等待线程拿空闲连接的方式，默认为false<br>true：相当于等待线程是在先进先出去拿空闲连接</li>
 <li>maxWaitMillis：当连接池资源耗尽时，调用者最大阻塞的时间，超时将跑出异常。单位，毫秒数;默认为-1.表示永不超时. 默认值 -1<br>maxWait：commons-pool1中</li>
-<li>minEvictableIdleTimeMillis：连接空闲的最小时间，达到此值后空闲连接将可能会被移除。负值(-1)表示不移除；默认值1000L <em> 60L </em> 30L</li>
-<li>softMinEvictableIdleTimeMillis：连接空闲的最小时间，达到此值后空闲链接将会被移除，且保留“minIdle”个空闲连接数。负值(-1)表示不移除。默认值1000L <em> 60L </em> 30L</li>
+<li>minEvictableIdleTimeMillis：连接空闲的最小时间，达到此值后空闲连接将可能会被移除。负值(-1)表示不移除；默认值1000L * 60L * 30L</li>
+<li>softMinEvictableIdleTimeMillis：连接空闲的最小时间，达到此值后空闲链接将会被移除，且保留“minIdle”个空闲连接数。负值(-1)表示不移除。默认值1000L * 60L * 30L</li>
 <li>numTestsPerEvictionRun：默认值 3</li>
 <li>evictionPolicyClassName：默认值org.apache.commons.pool2.impl.DefaultEvictionPolicy</li>
 <li>testOnCreate：默认值false</li>
@@ -285,8 +293,7 @@
 <th>thrpt (ops/us)</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>ThreadLocal</td>
 <td>685.418</td>
 </tr>
@@ -310,8 +317,7 @@
 <td>CommonsPool</td>
 <td>0.276</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 
       
 
@@ -407,7 +413,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/06/06/消息中间件使用场景/消息中间件使用场景/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/06/06/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -421,7 +427,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/23/如何超过大多数人/如何超过大多数人/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/06/23/%E5%A6%82%E4%BD%95%E8%B6%85%E8%BF%87%E5%A4%A7%E5%A4%9A%E6%95%B0%E4%BA%BA/%E5%A6%82%E4%BD%95%E8%B6%85%E8%BF%87%E5%A4%A7%E5%A4%9A%E6%95%B0%E4%BA%BA/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -431,7 +437,7 @@
     </a>
   
   
-    <a href="/2018/04/06/BOSS系统分布式架构/BOSS系统分布式架构/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/04/06/BOSS%E7%B3%BB%E7%BB%9F%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/BOSS%E7%B3%BB%E7%BB%9F%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">BOSS系统分布式架构</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -561,18 +567,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">奇淫巧技</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">20 Predictions</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Spring Securit 5.2.x 不支持Authorization Server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">2017随笔</a>
               </li>
              
@@ -581,7 +575,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SpringCloudGateWay</a>
+                <a href="javascript:void(0)" class="js-tag color5">奇淫巧技</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,15 +587,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Spring Securit 5.2.x 不支持Authorization Server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SpringCloudGateWay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">M1芯片</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">好文转载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">开发流程指北</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,7 +607,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">好文转载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">消息中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">开发流程指北</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -621,7 +623,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">消息中间件</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">20 Predictions</a>
               </li>
             
             <div class="clearfix"></div>

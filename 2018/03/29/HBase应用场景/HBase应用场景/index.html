@@ -11,13 +11,15 @@
   <meta name="description" content="最近在VPS上搭建HBase还没来的及总结，又忙着去看了看公司使用HBase的场景，所以在此做个总结顺带把HBase一些基本东西复习下">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HBase应用场景">
-<meta property="og:url" content="http://yoursite.com/2018/03/29/HBase应用场景/HBase应用场景/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/03/29/HBase%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/HBase%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/index.html">
 <meta property="og:site_name" content="Fanta的博客">
 <meta property="og:description" content="最近在VPS上搭建HBase还没来的及总结，又忙着去看了看公司使用HBase的场景，所以在此做个总结顺带把HBase一些基本东西复习下">
-<meta property="og:updated_time" content="2018-12-10T07:12:02.228Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-03-29T03:28:17.000Z">
+<meta property="article:modified_time" content="2018-12-10T07:12:02.228Z">
+<meta property="article:author" content="Fanta">
+<meta property="article:tag" content="HBase">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HBase应用场景">
-<meta name="twitter:description" content="最近在VPS上搭建HBase还没来的及总结，又忙着去看了看公司使用HBase的场景，所以在此做个总结顺带把HBase一些基本东西复习下">
   
     <link rel="alternative" href="/atom.xml" title="Fanta的博客" type="application/atom+xml">
   
@@ -51,7 +53,7 @@
 
   
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <!-- 烟花效果 -->
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
@@ -70,10 +72,8 @@
 			<img src="/sanjin.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Fanta</a></h1>
+		  <h1 class="header-author"><a href="/">undefined</a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">why so serious?</p>
 		
 
 		<nav class="header-menu">
@@ -126,10 +126,8 @@
 				<img src="/sanjin.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Fanta</h1>
+			  <h1 class="header-author js-header-author">undefined</h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>why so serious?<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -199,7 +197,7 @@
   
 
         
-        <a href="/2018/03/29/HBase应用场景/HBase应用场景/" class="archive-article-date">
+        <a href="/2018/03/29/HBase%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/HBase%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/" class="archive-article-date">
   	<time datetime="2018-03-29T03:28:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-29</time>
 </a>
         
@@ -207,7 +205,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在VPS上搭建HBase还没来的及总结，又忙着去看了看公司使用HBase的场景，所以在此做个总结顺带把HBase一些基本东西复习下<a id="more"></a></p>
+        <p>最近在VPS上搭建HBase还没来的及总结，又忙着去看了看公司使用HBase的场景，所以在此做个总结顺带把HBase一些基本东西复习下<span id="more"></span></p>
 <h2 id="1、BOSS系统中处理详单数据时使用到了HBase数据库。"><a href="#1、BOSS系统中处理详单数据时使用到了HBase数据库。" class="headerlink" title="1、BOSS系统中处理详单数据时使用到了HBase数据库。"></a>1、BOSS系统中处理详单数据时使用到了HBase数据库。</h2><p>因为计费处理话单文件是零散的、无序的、大存储量的。而且计费下发过来的文件是一种结构化的，固定形式的。所以如果需要持久化的话非常适合HBase这种分布式列数据库方式存储。查询语言对Java也有很好支持（除非与其他框架一起使用，如 Phoenix、Hive），不像关系数据库需要使用SQL语句。HBase的索引方式只支持Row-Key（除非和其他技术在一起用）, HBase的事务是单个Row级别的。而且像详单这种数据量增速很快的东西，使用传统关系数据库做拓展和扩容是非常困难的，往往建立在昂贵的硬件和性能优化上，HBase通过增加Region数量就可以达到此的效果。</p>
 <h3 id="Hive和HBase使用区别"><a href="#Hive和HBase使用区别" class="headerlink" title="Hive和HBase使用区别"></a>Hive和HBase使用区别</h3><p>类似的有例如Hive这种数据库存储，但是Hive的场景适合统计一段时间内的数据，而且不能实时返回数据。例如，用来计算趋势或者网站的日志。Hive 不应该用来进行实时的查询（Hive 的设计目的，也不是支持实时的查询）。因为它需要很长时间才可以返回结果；<br>HBase 则非常适合用来进行大数据的实时查询，例如 Facebook 用 HBase 进行消息和实时的分析。对于 Hive 和 HBase 的部署来说，也有一些区别，Hive 一般只要有 Hadoop 便可以工作。而 HBase 则还需要 Zookeeper 的帮助（Zookeeper，是一个用来进行分布式协调的服务，这些服务包括配置服务，维护元信息和命名空间服务）。再而，HBase 本身只提供了 Java 的 API 接口，并不直接支持 SQL 的语句查询，而 Hive 则可以直接使用 HQL（一种类 SQL 语言）。如果想要在 HBase 上使用 SQL，则需要联合使用 Apache Phonenix，或者联合使用 Hive 和 HBase。但是和上面提到的一样，如果集成使用 Hive 查询 HBase 的数据，则无法绕过 MapReduce，那么实时性还是有一定的损失。Phoenix 加 HBase 的组合则不经过 MapReduce 的框架，因此当使用 Phoneix 加 HBase 的组成，实时性上会优于 Hive 加 HBase 的组合，我们后续也会示例性介绍如何使用两者。最后我们再提下 Hive 和 HBase 所使用的存储层，默认情况下 Hive 和 HBase 的存储层都是 HDFS。但是 HBase 在一些特殊的情况下也可以直接使用本机的文件系统。例如 Ambari 中的 AMS 服务直接在本地文件系统上运行 HBase。</p>
 <h3 id="表-1-HBase-与-RDBMS-的区别"><a href="#表-1-HBase-与-RDBMS-的区别" class="headerlink" title="表 1. HBase 与 RDBMS 的区别"></a>表 1. HBase 与 RDBMS 的区别</h3><table>
@@ -218,8 +216,7 @@
 <th>RDBMS</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>硬件架构</td>
 <td>类似于 Hadoop 的分布式集群，硬件成本低廉</td>
 <td>传统的多核系统，硬件成本昂贵</td>
@@ -264,8 +261,7 @@
 <td>百万查询/每秒</td>
 <td>数千查询/每秒</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p> 当然BOSS系统中也会保存2个月详单的数据放在物理数据库中作为备份，所以当BOSS系统使用大数据量查询时候，HBase配合HadHoop和ZooKeeper可以通过ZK来达到HA的效果，如果单纯将HBase作为单机部署其实发挥不了太大作用，搭配分布式部署起来可以发挥快速作用，ZK负责至少一个HBase Master可用，Hadoop则给Hbase提供HDFS作为存储基础，这样存取速度、容错性都有很好的保证。</p>
 <h2 id="2、BOSS系统在ROW-KEY上的设计"><a href="#2、BOSS系统在ROW-KEY上的设计" class="headerlink" title="2、BOSS系统在ROW-KEY上的设计"></a>2、BOSS系统在ROW-KEY上的设计</h2><p>a.首先Row-key的设计要保证唯一性，我们将手机号码倒置+时间戳和详单专业配置匹配，可以保证其唯一性。<br>b.其次Row-key在保证唯一性前提下，还需要尽量缩小Row-key占用的字节数，这样可以提高搜索效率，缩小搜索范围。<br>c.接着要考虑Row-key设计对访问热点和存储负载的尽量分散，比如说手机号码这一类从13开始就有很多号段很类似的，如果直接使用手机号码也可以达到唯一性，但是这样会让Row-key哈希后存储的很集中 随之访问热点也会很集中对于Region是很大的负担，也达不到应有的效率。<br>但是倒置的话会让尽量分散开，保证了效率和负载。<br>ex：put ‘sdetail_201704’,’05186155281         P20170418076652A60A742F2E’,’c1:d1’,’P|P11|PW|||18255168150|20170418|092802|551|LBMP20140228551.087|1O2000000000000000|02280928005890|1|1|000000||5515515101366|5515515101366|9000181003|5|0|100798024434565280|5|||||201704218000000|5|5|5|||$’</p>
 <p>就例如上面：05186155281         P20170418076652A60A742F2E 这种Row-key去设计</p>
@@ -367,7 +363,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/29/HBase应用场景/HBase应用场景/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/29/HBase%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/HBase%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -381,7 +377,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/04/06/BOSS系统分布式架构/BOSS系统分布式架构/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/04/06/BOSS%E7%B3%BB%E7%BB%9F%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/BOSS%E7%B3%BB%E7%BB%9F%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -391,7 +387,7 @@
     </a>
   
   
-    <a href="/2018/03/10/2017总结/2017总结/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/03/10/2017%E6%80%BB%E7%BB%93/2017%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">2017总结</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -521,18 +517,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">奇淫巧技</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">20 Predictions</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Spring Securit 5.2.x 不支持Authorization Server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">2017随笔</a>
               </li>
              
@@ -541,7 +525,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SpringCloudGateWay</a>
+                <a href="javascript:void(0)" class="js-tag color5">奇淫巧技</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,15 +537,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Spring Securit 5.2.x 不支持Authorization Server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SpringCloudGateWay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">M1芯片</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">好文转载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">开发流程指北</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,7 +557,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">好文转载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">消息中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">开发流程指北</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -581,7 +573,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">消息中间件</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">20 Predictions</a>
               </li>
             
             <div class="clearfix"></div>
